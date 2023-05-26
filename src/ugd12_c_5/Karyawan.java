@@ -20,8 +20,6 @@ public abstract class Karyawan {
     protected String nama;
     protected double tunjangan;
     protected Toko toko;
-
-    public static StringBuffer space = new StringBuffer();
     
     public Karyawan(String nama, double tunjangan, Toko toko) {
         this.nama = nama;

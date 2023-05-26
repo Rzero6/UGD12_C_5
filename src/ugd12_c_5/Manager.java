@@ -19,29 +19,30 @@ package ugd12_c_5;
 
 import java.util.ArrayList;
 
-public class Manager extends Karyawan{
+public class Manager extends Karyawan implements IComposite{
     private String jenis;
     private int jumlahBawahan;
     private ArrayList<Karyawan> bawahan;
 
-    public Manager(String nama, double tunjangan, Toko toko, String jenis, int jumlahBawahan) {
+    public Manager(String nama, double tunjangan, Toko toko, String jenis) {
         super(nama, tunjangan, toko);
         this.jenis = jenis;
         this.bawahan = new ArrayList<Karyawan>();
-        this.jumlahBawahan = jumlahBawahan;
+        this.jumlahBawahan = 0;
     }
     
     public void RekrutBawahan(Karyawan k){
         bawahan.add(k);
+        this.jumlahBawahan++;
     }
 
     @Override
     public void Update(double jumlah) {
-        double bonus;
-        if(jenis.equalsIgnoreCase("utama")){
-            bonus = jumlah+100000 + (jumlahBawahan*20000);
-        }else{
-            bonus = jumlah+40000 + (jumlahBawahan*10000);
+        double bonus = 0;
+        if(jenis.equalsIgnoreCase("Utama")){
+            bonus = (jumlah+100000) + (jumlahBawahan*20000);
+        }else if (jenis.equalsIgnoreCase("Bagian")){
+            bonus = (jumlah+40000) + (jumlahBawahan*10000);
         }
         
         System.out.println("\t--- Tunjangan "+nama+" bertambah sebanyak "+bonus);
@@ -50,14 +51,12 @@ public class Manager extends Karyawan{
 
     @Override
     public void ShowData() {
-        System.out.println(Karyawan.space+"[Manager] "+nama+" - Total Tunjangan : "+tunjangan);
-        Karyawan.space.append("   ");
+        System.out.println(IComposite.space+"[Manager] "+nama+" - Total Tunjangan : "+tunjangan);
+        IComposite.space.append("   ");
         for(Karyawan k : bawahan){
-            System.out.println(Karyawan.space+"\n{Bawahan "+nama+"} ");
+            System.out.print(IComposite.space+"{Bawahan "+nama+"}");
             k.ShowData();
         }
-        Karyawan.space.setLength(Karyawan.space.length()-3);
+        IComposite.space.setLength(IComposite.space.length()-3);
     }
-    
-    
 }

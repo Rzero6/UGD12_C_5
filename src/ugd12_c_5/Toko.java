@@ -36,7 +36,7 @@ public class Toko {
         this.penanggungJawab = penanggungJawab;
     }
     public void tampilDaftarKaryawan(){
-        System.out.println("Toko "+namaToko);
+        System.out.println("\n\nToko "+namaToko);
         System.out.println("Alamat "+alamat);
         System.out.println("Jumlah Dana Toko: "+danaToko);
         penanggungJawab.ShowData();
@@ -55,8 +55,8 @@ public class Toko {
     }
     public void PenjualanBarang(double harga, int jmlBarang){
         double tempDanaToko = harga*jmlBarang;
-        System.out.println("Dana Toko Bertambah: "+tempDanaToko);
+        System.out.println("\t\tDana Toko Bertambah: "+tempDanaToko);
         danaToko+=tempDanaToko;
-        NotifyObserver(harga*jmlBarang/20.0);
+        NotifyObserver(tempDanaToko / 20);
     }
 }

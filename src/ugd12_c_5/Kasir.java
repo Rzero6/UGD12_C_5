@@ -16,7 +16,7 @@ package ugd12_c_5;
  *
  * @author Msi Modern 14
  */
-public class Kasir extends Karyawan{
+public class Kasir extends Karyawan implements IComposite{
     private int jumlahLembur;
 
     public Kasir(int jumlahLembur, String nama, double tunjangan, Toko toko) {
@@ -34,6 +34,6 @@ public class Kasir extends Karyawan{
     @Override
     public void ShowData() {
         
-        System.out.print("[Kasir] "+nama+" - Total Tunjangan: "+tunjangan);
+        System.out.println("[Kasir] "+nama+" - Total Tunjangan: "+tunjangan);
     }
 }
