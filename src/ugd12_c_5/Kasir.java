@@ -23,10 +23,17 @@ public class Kasir extends Karyawan{
         super(nama, tunjangan, toko);
         this.jumlahLembur = jumlahLembur;
     }
-    
+
     @Override
-    public void Update(float bonus, double jumlah){
-        float temp = bonus = 0;
-        bonus += bonus +(jumlah*10000);     
+    public void Update(double jumlah) {
+        double bonus = jumlah + (jumlahLembur*10000);
+        tunjangan += bonus;
+        System.out.println("\t--- Tunjangan "+nama+" Bertambah Sebanyak: "+bonus);
+    }
+
+    @Override
+    public void ShowData() {
+        
+        System.out.print("[Kasir] "+nama+" - Total Tunjangan: "+tunjangan);
     }
 }

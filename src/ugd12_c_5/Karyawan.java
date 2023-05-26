@@ -21,6 +21,8 @@ public abstract class Karyawan {
     protected double tunjangan;
     protected Toko toko;
 
+    public static StringBuffer space = new StringBuffer();
+    
     public Karyawan(String nama, double tunjangan, Toko toko) {
         this.nama = nama;
         this.tunjangan = tunjangan;
@@ -28,11 +30,7 @@ public abstract class Karyawan {
         this.toko.RegisterObserver(this);
     }
     
-//    public void ShowData(){
-//        System.out.println();
-//    }
-    
-    public abstract void Update(float bonus);
-    
+    public abstract void Update(double jumlah);
+    public abstract void ShowData();
     
 }

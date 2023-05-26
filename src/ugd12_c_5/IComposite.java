@@ -10,6 +10,5 @@ package ugd12_c_5;
  */
 public interface IComposite {
     public static StringBuffer space = new StringBuffer();
-    
     public void showData();
 }
