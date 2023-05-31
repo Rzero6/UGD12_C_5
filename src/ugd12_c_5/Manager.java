@@ -66,6 +66,10 @@ public class Manager extends Karyawan implements IComposite{
 
     @Override
     public double GetTunjangan() {
-        return tunjangan;
+        double total = tunjangan;
+        for (Karyawan k : bawahan) {
+            total += k.GetTunjangan();
+        }
+        return total;
     }
 }
