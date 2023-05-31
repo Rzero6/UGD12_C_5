@@ -40,12 +40,20 @@ public class UGD12_C_5 {
         mb2.RekrutBawahan(k4);
         mu.RekrutBawahan(mb1);
         mu.RekrutBawahan(mb2);
-        toko.setPenanggungJawab(mu);
-        toko.tampilDaftarKaryawan();
-        System.out.println("\n\nTampilkan Observernya saat terjadi penjualan dengan jumlah barang 5 dan harga 450000\n");
-        toko.PenjualanBarang(450000, 5);
-        System.out.println("\n\n\tSetelah Penjualan Berhasil\n\n");
-        toko.tampilDaftarKaryawan();
+        try{
+            toko.setPenanggungJawab(mu);
+            //toko.setPenanggungJawab(mb2);
+            toko.tampilDaftarKaryawan();
+            System.out.println("\n\nTampilkan Observernya saat terjadi penjualan dengan jumlah barang 5 dan harga 450000\n");
+            toko.PenjualanBarang(450000, 5);
+            System.out.println("\n\n\tSetelah Penjualan Berhasil");
+            toko.tampilDaftarKaryawan();
+            toko.ShowTotalTunjangan();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        
     }
 
 }

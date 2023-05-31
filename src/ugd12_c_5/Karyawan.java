@@ -30,5 +30,6 @@ public abstract class Karyawan {
     
     public abstract void Update(double jumlah);
     public abstract void ShowData();
+    public abstract double GetTunjangan();
     
 }

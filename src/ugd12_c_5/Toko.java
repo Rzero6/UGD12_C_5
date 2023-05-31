@@ -33,6 +33,9 @@ public class Toko {
     }
 
     public void setPenanggungJawab(Manager penanggungJawab) {
+        if(!penanggungJawab.getJenis().equalsIgnoreCase("utama")){
+            throw new RuntimeException("Jabatan Manager kurang tinggi!");
+        }
         this.penanggungJawab = penanggungJawab;
     }
     public void tampilDaftarKaryawan(){
@@ -58,5 +61,12 @@ public class Toko {
         System.out.println("\t\tDana Toko Bertambah: "+tempDanaToko);
         danaToko+=tempDanaToko;
         NotifyObserver(tempDanaToko / 20);
+    }
+    public void ShowTotalTunjangan(){
+        double totalTunjangan = 0;
+        for(Karyawan k: karyawan){
+            totalTunjangan += k.GetTunjangan();
+        }
+        System.out.println("\n\nTotal Tunjangan: "+totalTunjangan);
     }
 }

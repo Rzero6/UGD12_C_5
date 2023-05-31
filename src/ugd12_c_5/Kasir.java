@@ -28,12 +28,17 @@ public class Kasir extends Karyawan implements IComposite{
     public void Update(double jumlah) {
         double bonus = jumlah + (jumlahLembur*10000);
         tunjangan += bonus;
-        System.out.println("\t--- Tunjangan "+nama+" Bertambah Sebanyak: "+bonus);
+        System.out.println("\t--- Tunjangan "+nama+" Bertambah Sebanyak Rp. "+bonus);
     }
 
     @Override
     public void ShowData() {
         
         System.out.println("[Kasir] "+nama+" - Total Tunjangan: "+tunjangan);
+    }
+
+    @Override
+    public double GetTunjangan() {
+        return tunjangan;
     }
 }

@@ -30,6 +30,10 @@ public class Manager extends Karyawan implements IComposite{
         this.bawahan = new ArrayList<Karyawan>();
         this.jumlahBawahan = 0;
     }
+
+    public String getJenis() {
+        return jenis;
+    }
     
     public void RekrutBawahan(Karyawan k){
         bawahan.add(k);
@@ -45,7 +49,7 @@ public class Manager extends Karyawan implements IComposite{
             bonus = (jumlah+40000) + (jumlahBawahan*10000);
         }
         
-        System.out.println("\t--- Tunjangan "+nama+" bertambah sebanyak "+bonus);
+        System.out.println("\t--- Tunjangan "+nama+" bertambah sebanyak Rp. "+bonus);
         tunjangan+=bonus;
     }
 
@@ -54,9 +58,14 @@ public class Manager extends Karyawan implements IComposite{
         System.out.println(IComposite.space+"[Manager] "+nama+" - Total Tunjangan : "+tunjangan);
         IComposite.space.append("   ");
         for(Karyawan k : bawahan){
-            System.out.print(IComposite.space+"{Bawahan "+nama+"}");
+            System.out.print(IComposite.space+"{Bawahan "+nama+"} ");
             k.ShowData();
         }
         IComposite.space.setLength(IComposite.space.length()-3);
+    }
+
+    @Override
+    public double GetTunjangan() {
+        return tunjangan;
     }
 }
